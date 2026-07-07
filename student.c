@@ -216,13 +216,12 @@ void deleteStudent(struct Student *stu, int *count)
         {
             found = 1;
 
-            // Shift all elements one position left
             for(int j = i; j < *count - 1; j++)
             {
                 stu[j] = stu[j + 1];
             }
 
-            (*count)--;   // Correct way to decrease the number of students
+            (*count)--;  
 
             printf("Student Deleted Successfully!\n");
             break;

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "student.h"
+#include "faculty.h"
 
 int main()
 {
@@ -21,6 +22,10 @@ int main()
         {
             case 1:
                 studentMenu();
+                break;
+
+            case 2:
+                facultyMenu();
                 break;
 
             
