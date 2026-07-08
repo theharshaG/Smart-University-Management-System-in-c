@@ -64,25 +64,25 @@ void studentMenu()
     } while(ch != 8);
 }
 void addStudent(struct Student *stu,int *count){
-    printf("enter student ID:");
+    printf("Enter student ID:");
     scanf("%d",&stu[*count].id);
     
-    printf("enter student Name:");
+    printf("Enter student Name:");
     scanf("%s",stu[*count].name);
     
-    printf("enter student age:");
+    printf("Enter student age:");
     scanf("%d",&stu[*count].age);
     
-    printf("enter gender:");
+    printf("Enter gender:");
     scanf("%s",stu[*count].gender);
     
-    printf("enter department:");
+    printf("Enter department:");
     scanf("%s",stu[*count].department);
     
-    printf("enter semister:");
+    printf("Enter semister:");
     scanf("%d",&stu[*count].sem);
     
-    printf("enter CGPA:");
+    printf("Enter CGPA:");
     scanf("%f",&stu[*count].cgpa);
        
     (*count)++;
@@ -243,7 +243,7 @@ void saveStudents(struct Student *stu, int count)
         return;
     }
 
-    fprintf(fp, "%d\n", count);   // Save number of students
+    fprintf(fp, "%d\n", count);  
 
     for(int i = 0; i < count; i++)
     {

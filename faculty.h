@@ -15,5 +15,10 @@ void facultyMenu();
 
 void addFaculty(struct Faculty *fac, int *count);
 void viewFaculty(struct Faculty *fac, int count);
+void searchFaculty(struct Faculty *fac ,int count);
+void updateFaculty(struct Faculty *fac ,int count);
+void deleteFaculty(struct Faculty *fac ,int *count);
+void saveFaculty(struct Faculty *fac ,int count);
+void loadFaculty(struct Faculty *fac,int *count);
 
 #endif
