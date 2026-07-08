@@ -1,3 +1,0 @@
-2
-1 harsha 21 male ece 3 33.00
-2 harsha 22 male ece 4 3.00
