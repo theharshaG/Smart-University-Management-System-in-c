@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "student.h"
 #include "faculty.h"
+#include "course.h"
 
 int main()
 {
@@ -11,7 +12,7 @@ int main()
         printf("\n===== SMART UNIVERSITY =====\n");
         printf("1. Student Management\n");
         printf("2. Faculty Management\n");
-        printf("3. Hostel Management\n");
+        printf("3. Course Management\n");
         printf("4. Library Management\n");
         printf("5. Exit\n");
 
@@ -26,6 +27,10 @@ int main()
 
             case 2:
                 facultyMenu();
+                break;
+
+            case 3:
+                courseMenu();
                 break;
 
             
