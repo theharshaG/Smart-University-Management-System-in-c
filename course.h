@@ -12,7 +12,7 @@ struct Course
 
 void courseMenu();
 
-void addCourse(struct Course **course, int *count);
+void addCourse(struct Course *course, int *count);
 void viewCourse(struct Course *course, int count);
 
 

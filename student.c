@@ -66,6 +66,15 @@ void studentMenu()
 void addStudent(struct Student *stu,int *count){
     printf("Enter student ID:");
     scanf("%d",&stu[*count].id);
+
+    for(int i = 0; i < *count; i++)
+    {
+        if(stu[i].id == stu[*count].id)
+        {
+            printf("Duplicate ID! Student already exists.\n");
+            return;
+        }
+    }
     
     printf("Enter student Name:");
     scanf("%s",stu[*count].name);
@@ -104,7 +113,7 @@ void viewStudent(struct Student *stu,int count){
         printf("Department         : %s\n", stu[i].department);
         printf("Semester           : %d\n", stu[i].sem);
         printf("CGPA               : %.2f\n", stu[i].cgpa);  
-        printf("\n==========================\n");
+        printf("\n===============================\n");
     }
     }
     

@@ -33,12 +33,20 @@ int main()
                 courseMenu();
                 break;
 
+            case 4:
+                //libraryMenu();
+                break;
+
+            case 5:
+                printf("Thank you");
+                break;
+
             
             default:
                 printf("Invalid Choice!\n");
         }
 
-    } while(choice != 2);
+    } while(choice != 5);
 
     return 0;
 }

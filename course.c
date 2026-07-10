@@ -4,7 +4,7 @@
 
 void courseMenu()
 {
-    struct Course *course = NULL;
+    struct Course course[100];
     int count = 0;
     int ch;
 
@@ -26,7 +26,7 @@ void courseMenu()
         switch(ch)
         {
             case 1:
-                addCourse(&course, &count);
+                addCourse(course, &count);
                 break;
 
             case 2:
@@ -63,37 +63,25 @@ void courseMenu()
 
     }while(ch != 8);
 
-    free(course);
 }
 
-void addCourse(struct Course **course, int *count)
+void addCourse(struct Course *course, int *count)
 {
-    struct Course *temp;
-
-    temp = realloc(*course, (*count + 1) * sizeof(struct Course));
-
-    if(temp == NULL)
-    {
-        printf("Memory Allocation Failed!\n");
-        return;
-    }
-
-    *course = temp;
 
     printf("Enter Course ID: ");
-    scanf("%d", &(*course)[*count].id);
+    scanf("%d", &course[*count].id);
 
     printf("Enter Course Name: ");
-    scanf("%s", (*course)[*count].name);
+    scanf("%s", course[*count].name);
 
     printf("Enter Credits: ");
-    scanf("%d", &(*course)[*count].credits);
+    scanf("%d", &course[*count].credits);
 
     printf("Enter Semester: ");
-    scanf("%d", &(*course)[*count].sem);
+    scanf("%d", &course[*count].sem);
 
     printf("Enter Faculty ID: ");
-    scanf("%d", &(*course)[*count].facultyId);
+    scanf("%d", &course[*count].facultyId);
 
     (*count)++;
 
@@ -116,6 +104,6 @@ void viewCourse(struct Course *course, int count)
         printf("Credits          : %d\n", course[i].credits);
         printf("Semester         : %d\n", course[i].sem);
         printf("Faculty ID       : %d\n", course[i].facultyId);
-        printf("===============================\n");
+        printf("==================================\n");
     }
 }

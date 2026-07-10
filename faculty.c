@@ -8,6 +8,7 @@ void facultyMenu()
     int count=0;
 
     do{
+        printf("\n=====FACULTY MANAGEMENT=====\n");
         printf("\n1. Add Faculty\n");
         printf("2. View Faculty\n");
         printf("3. Search Facuty\n");
@@ -50,7 +51,7 @@ void facultyMenu()
                 break;
 
             case 8:
-                printf("Thank you");
+                printf("Returning to Main Menu...\n"); 
                 break;
 
             default:
@@ -58,7 +59,7 @@ void facultyMenu()
                 break;
             
     }
-    }while(ch!=8);
+    }while(ch != 8);
     
 }
 void addFaculty(struct Faculty *fac, int *count){
@@ -113,6 +114,7 @@ void searchFaculty(struct Faculty *fac ,int count)
 
     if(count==0){
         printf("No faculty");
+        return;
     }
     printf("Enter Id to search:");
     scanf("%d",&key);
@@ -133,6 +135,7 @@ void searchFaculty(struct Faculty *fac ,int count)
     }
     if(found==0){
         printf("Faculty not found");
+        return;
     }
 }
 void updateFaculty(struct Faculty *fac ,int count)
@@ -140,6 +143,7 @@ void updateFaculty(struct Faculty *fac ,int count)
     if(count==0)
     {
         printf("No faculty");
+        return;
     }
     int found=0;
     int key;
@@ -177,8 +181,9 @@ if(found==0)
 }
 void deleteFaculty(struct Faculty *fac ,int *count)
 {
-    if(count==0){
+    if(*count==0){
         printf("No faculty");
+        return;
     }
     int key;
     int found=0;
