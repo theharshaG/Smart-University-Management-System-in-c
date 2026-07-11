@@ -107,3 +107,33 @@ void viewCourse(struct Course *course, int count)
         printf("==================================\n");
     }
 }
+void searchCourse(struct Course *course,int count){
+    int key;
+    int found = 0;
+
+    if(count==0){
+        printf("No faculty");
+        return;
+    }
+    printf("Enter Id to search:");
+    scanf("%d",&key);
+
+    for(int i=0;i<count;i++){
+        if(key==course[i].id){
+            found=1;
+            printf("\n==========Course Details============\n");
+            printf("Course ID        : %d\n", course[i].id);
+            printf("Course Name      : %s\n", course[i].name);
+            printf("Credits          : %d\n", course[i].credits);
+            printf("Semester         : %d\n", course[i].sem);
+            printf("Faculty ID       : %d\n", course[i].facultyId);
+            printf("=====================================\n");
+
+            break;
+        }
+    }
+    if(found==0){
+        printf("Course not found");
+        return;
+    }
+}

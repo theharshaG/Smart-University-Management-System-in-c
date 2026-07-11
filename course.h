@@ -14,6 +14,7 @@ void courseMenu();
 
 void addCourse(struct Course *course, int *count);
 void viewCourse(struct Course *course, int count);
+void searchCourse(struct Course *course,int count);
 
 
 #endif
