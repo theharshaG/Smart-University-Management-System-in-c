@@ -34,23 +34,23 @@ void courseMenu()
                 break;
 
             case 3:
-                // searchCourse(course, count);
+                 searchCourse(course, count);
                 break;
 
             case 4:
-                // updateCourse(course, count);
+                updateCourse(course, count);
                 break;
 
             case 5:
-                // deleteCourse(&course, &count);
+                deleteCourse(&course, &count);
                 break;
 
             case 6:
-                // saveCourse(course, count);
+                saveCourse(course, count);
                 break;
 
             case 7:
-                // loadCourse(&course, &count);
+                loadCourse(&course, &count);
                 break;
 
             case 8:
@@ -136,4 +136,113 @@ void searchCourse(struct Course *course,int count){
         printf("Course not found");
         return;
     }
+}
+void updateCourse(struct Course *course,int count){
+    if(count==0)
+    {
+        printf("No faculty");
+        return;
+    }
+    int found=0;
+    int key;
+    printf("Enter Id to update:");
+    scanf("%d",&key);
+
+    for(int i=0;i<count;i++)
+    {
+        if(key==course[i].id)
+        {
+            found=1;
+            printf("Enter New Course Name: ");
+            scanf("%s", course[count].name);
+
+            printf("Enter Credits: ");
+            scanf("%d", &course[count].credits);
+
+            printf("Enter Semester: ");
+            scanf("%d", &course[count].sem);
+
+            printf("Enter Faculty ID: ");
+            scanf("%d", &course[count].facultyId);
+
+
+            printf("Course Update Successfully.\n");
+        }
+    }
+    if(found==0)
+        printf("Course not found\n");
+}
+void deleteCourse(struct Course *course ,int *count)
+{
+    int key;
+    int found = 0;
+
+    if(count==0){
+        printf("No Corses");
+        return;
+    }
+    printf("Enter Id to search:");
+    scanf("%d",&key);
+    for(int i=0;i<count;i++){
+        if(key==course[i].id){
+            found=1;
+            for(int j=0;j<*count-1;j++)
+            {
+                course[j]=course[j+1];
+            }
+            (*count)--;
+            printf("Corse deleted successfully\n");
+            break;
+        }
+        }
+        if(!found)
+            printf("Course not found");
+}
+void saveCourse(struct Course *course,int count)
+{
+    FILE *fp=fopen("course.txt","w");
+
+    if(fp==NULL)
+    {
+        printf("cannot open file\n");
+        return;
+    }
+    fprintf(fp,"%d\n",count);
+    for(int i=0;i<count;i++){
+        fprintf(fp,"%d %s %d %d %d \n",
+        course[i].id,
+        course[i].name,
+        course[i].credits,
+        course[i].sem,
+        course[i].facultyId);
+    }
+    fclose(fp);
+    printf("Course Save successfully\n");
+}
+void loadCourse(struct Course *course, int *count)
+{
+    FILE *fp = fopen("course.txt", "r");
+
+    if(fp == NULL)
+    {
+        printf("Cannot open file\n");
+        return;
+    }
+
+    fscanf(fp, "%d", count);
+
+    for(int i = 0; i < *count; i++)
+    {
+        fscanf(fp, "%d %49s %d %d %d",
+               &course[i].id,
+                course[i].name,
+                course[i].credits,
+                course[i].sem,
+                course[i].facultyId);
+               
+    }
+
+    fclose(fp);
+
+    printf("Course loaded successfully\n");
 }
