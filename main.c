@@ -2,6 +2,7 @@
 #include "student.h"
 #include "faculty.h"
 #include "course.h"
+#include "library.h"
 
 int main()
 {
@@ -34,7 +35,7 @@ int main()
                 break;
 
             case 4:
-                //libraryMenu();
+                libraryMenu();
                 break;
 
             case 5:
