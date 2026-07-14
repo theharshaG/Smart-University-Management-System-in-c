@@ -12,6 +12,6 @@ struct Book
 void libraryMenu();
 
 void addBook(struct Book *book,int *count);
-
+void viewBook(struct Book *book,int count);
 
 #endif

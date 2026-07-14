@@ -52,3 +52,20 @@ void addBook(struct Book *book,int *count)
 
     printf("\nBook Added Successfully!\n");
 }
+void viewBook(struct Book *book,int count)
+{
+    if(count==0)
+    {
+        printf("No Book");
+        return;
+    }
+    for(int i=0;i<count;i++)
+    {
+        printf("\n=======Library Book======\n");
+        printf("Book Id        : %d\n",book[i].bookId);
+        printf("Book title     : %s\n",book[i].title);
+        printf("Book author    : %s\n",book[i].author);
+        printf("Book quatity   : %d\n",book[i].quantity);
+        printf("\n===========================\n");
+    }
+}
