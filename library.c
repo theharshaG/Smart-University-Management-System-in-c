@@ -69,3 +69,33 @@ void viewBook(struct Book *book,int count)
         printf("\n===========================\n");
     }
 }
+void searchBook(struct Book *book,int count)
+{
+    int key;
+    int found = 0;
+
+    if(count==0){
+        printf("No faculty");
+        return;
+    }
+    printf("Enter Id to search:");
+    scanf("%d",&key);
+
+    for(int i=0;i<count;i++)
+    {
+        if(key==book[i].bookId)
+        {
+            found=1;
+            printf("\n=======Library Book======\n");
+            printf("Book Id        : %d\n",book[i].bookId);
+            printf("Book title     : %s\n",book[i].title);
+            printf("Book author    : %s\n",book[i].author);
+            printf("Book quatity   : %d\n",book[i].quantity);
+            printf("\n===========================\n");
+        }
+    }
+    if(found==0){
+        printf("Book not found");
+        return;
+    }
+}
