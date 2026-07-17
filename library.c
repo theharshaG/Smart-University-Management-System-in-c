@@ -29,6 +29,18 @@ void libraryMenu()
             case 2:
                 viewBook(book,count);
                 break;
+
+            case 3:
+                searchBook(book,count);
+                break;
+
+            case 4:
+                updateBook(book,count);
+                break;
+
+            case 5:
+                deleteBook(book,&count);
+                break;
         }
 
 
@@ -97,5 +109,69 @@ void searchBook(struct Book *book,int count)
     if(found==0){
         printf("Book not found");
         return;
+    }
+}
+void updateBook(struct Book *book, int count)
+{
+    if(count==0)
+    {
+        printf("No books");
+        return;
+    }
+    int key;
+    printf("Enter Book id to update:");
+    scanf("%d",&key);
+    int found=0;
+    for(int i=0;i<count;i++)
+    {
+        if(key==book[i].bookId)
+        {
+            found=1;
+            printf("Enter New Title: ");
+            scanf("%s", book[count].title);
+
+            printf("Enter Author Name: ");
+            scanf("%s", book[count].author);
+
+            printf("Enter Quantity: ");
+            scanf("%d", &book[count].quantity);
+
+        }
+    }
+    if(found==0)
+    {
+        printf("Book not found");
+    }
+}
+void deleteBook(struct Book *book,int *count)
+{
+    if(*count==0)
+    {
+        printf("No Book");
+        return;
+    }
+    int key;
+    printf("Enter Book Id to delete:");
+    scanf("%d",&key);
+
+    int found=0;
+
+    for(int i=0;i<*count;i++)
+    {
+        if(key==book[i].bookId)
+        {
+            found=1;
+            for(int j=i;j<*count-1;j++)
+            {
+                book[j]=book[j+1];
+            }
+            (*count)--;
+            printf("Book deleted successfully.");
+            break;
+        }
+    }
+    if(!found)
+    {
+        printf("Book not found");
     }
 }

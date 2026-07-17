@@ -41,7 +41,7 @@ void courseMenu()
                 break;
 
             case 5:
-                deleteCourse(&course, &count);
+                deleteCourse(course, &count);
                 break;
 
             case 6:
@@ -49,7 +49,7 @@ void courseMenu()
                 break;
 
             case 7:
-                loadCourse(&course, &count);
+                loadCourse(course, &count);
                 break;
 
             case 8:
@@ -182,7 +182,7 @@ void deleteCourse(struct Course *course ,int *count)
     }
     printf("Enter Id to search:");
     scanf("%d",&key);
-    for(int i=0;i<count;i++){
+    for(int i=0;i<*count;i++){
         if(key==course[i].id){
             found=1;
             for(int j=0;j<*count-1;j++)
@@ -233,11 +233,11 @@ void loadCourse(struct Course *course, int *count)
     for(int i = 0; i < *count; i++)
     {
         fscanf(fp, "%d %49s %d %d %d",
-               &course[i].id,
+                &course[i].id,
                 course[i].name,
-                course[i].credits,
-                course[i].sem,
-                course[i].facultyId);
+                &course[i].credits,
+                &course[i].sem,
+                &course[i].facultyId);
                
     }
 
