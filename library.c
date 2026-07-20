@@ -41,6 +41,23 @@ void libraryMenu()
             case 5:
                 deleteBook(book,&count);
                 break;
+
+            case 6:
+                saveBook(book,count);
+                break;
+
+            case 7:
+                loadBook(book,&count);
+                break;
+
+            case 8:
+                printf("back to main");
+                break;
+
+            default:
+                printf("Invalid input");
+                break;
+
         }
 
 
@@ -174,4 +191,49 @@ void deleteBook(struct Book *book,int *count)
     {
         printf("Book not found");
     }
+}
+void saveBook(struct Book *book,int count)
+{
+    FILE *fp=fopen("library.txt","w");
+    if(fp == NULL)
+    {
+        printf("Cannot open file!\n");
+        return;
+    }
+
+    fprintf(fp, "%d\n", count);  
+
+    for(int i=0;i<count;i++)
+    {
+        fprintf(fp,"%d %s %s %d\n",
+        book[i].bookId,
+        book[i].title,
+        book[i].author,
+        book[i].quantity);
+    }
+    fclose(fp);
+
+    printf("Book saved successfully");
+}
+void loadBook(struct Book *book,int *count)
+{
+    FILE *fp=fopen("library.txt","r");
+    if(fp==NULL)
+    {
+        printf("cannot open file.");
+        return;
+    }
+    fscanf(fp,"%d",count);
+    for(int i=0;i<count;i++)
+    {
+        fscanf(fp,"%d,%49s,%49s,%d\n",
+        &book[i].bookId,
+        book[i].title,
+        book[i].author,
+        &book[i].quantity);
+    }
+    fclose(fp);
+    printf("Book load successfully!.");
+
+
 }

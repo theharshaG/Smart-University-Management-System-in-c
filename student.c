@@ -53,7 +53,7 @@ void studentMenu()
                 break;
 
             case 8:
-                printf("Thank you.");
+                printf("Back to main.");
                 break;
 
             default:

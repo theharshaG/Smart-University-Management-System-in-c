@@ -16,5 +16,7 @@ void viewBook(struct Book *book,int count);
 void searchBook(struct Book *book,int count);
 void updateBook(struct Book *book,int count);
 void deleteBook(struct Book *book,int *count);
+void saveBook(struct Book *book,int count);
+void loadBook(struct Book *book,int *count);
 
 #endif
