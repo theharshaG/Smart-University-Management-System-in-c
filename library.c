@@ -224,7 +224,7 @@ void loadBook(struct Book *book,int *count)
         return;
     }
     fscanf(fp,"%d",count);
-    for(int i=0;i<count;i++)
+    for(int i=0;i<*count;i++)
     {
         fscanf(fp,"%d,%49s,%49s,%d\n",
         &book[i].bookId,
